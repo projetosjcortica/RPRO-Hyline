@@ -1,0 +1,60 @@
+C:\JCortica\JCortica RPRO\JCortica RPRO\bin\Release\JCortica RPRO.exe.config
+C:\JCortica\JCortica RPRO\JCortica RPRO\bin\Release\JCortica RPRO.exe
+C:\JCortica\JCortica RPRO\JCortica RPRO\bin\Release\JCortica RPRO.pdb
+C:\JCortica\JCortica RPRO\JCortica RPRO\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\JCortica\JCortica RPRO\JCortica RPRO\bin\Release\MySql.Data.dll
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.AdminForm.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.AtualizarForm.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.Config.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.DataHora.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.Form1.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.Form3.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.MatPrima.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.Properties.Resources.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.Relat1Form.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.RelatorioData.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica_RPRO.Splash.resources
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica RPRO.csproj.GenerateResource.Cache
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\RdlCompile.cache
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\RdlCompile.compiled
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica RPRO.exe
+C:\JCortica\JCortica RPRO\JCortica RPRO\obj\Release\JCortica RPRO.pdb
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\bin\Release\JCortica RPRO.exe.config
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\bin\Release\JCortica RPRO.exe
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\bin\Release\JCortica RPRO.pdb
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.AtualizarForm.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.Config.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.DataHora.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.Form1.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.Form3.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.MatPrima.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.Properties.Resources.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.Relat1Form.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.RelatorioData.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica_RPRO.Splash.resources
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica RPRO.csproj.GenerateResource.Cache
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\RdlCompile.cache
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\RdlCompile.compiled
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica RPRO.exe
+C:\JCortica\JCortica RPRO - PV-1.2.00\JCortica RPRO\obj\Release\JCortica RPRO.pdb
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\bin\Release\JCortica RPRO.exe.config
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\bin\Release\JCortica RPRO.exe
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\bin\Release\JCortica RPRO.pdb
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.AtualizarForm.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.Config.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.DataHora.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.Form1.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.Form3.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.MatPrima.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.Properties.Resources.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.Relat1Form.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.RelatorioData.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica_RPRO.Splash.resources
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica RPRO.csproj.GenerateResource.Cache
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\RdlCompile.cache
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\RdlCompile.compiled
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica RPRO.exe
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica RPRO.pdb
+C:\JCortica\JCortica RPRO - PV1200\JCortica RPRO\obj\Release\JCortica RPRO.csprojResolveAssemblyReference.cache

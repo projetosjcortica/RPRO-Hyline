@@ -1,0 +1,6 @@
+open XV100
+anonymous
+lcd C:\RPRO\RPRO-Prod\BancoCSV
+bin
+get InternalStorage/data/Relatorio_1.csv
+quit

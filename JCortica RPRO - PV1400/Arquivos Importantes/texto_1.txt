@@ -1,0 +1,6 @@
+lcd C:\RPRO\RPRO-Prod\BancoCSV
+open IHM
+anonymous
+bin
+get InternalStorage/data/Relatorio_1.csv
+quit

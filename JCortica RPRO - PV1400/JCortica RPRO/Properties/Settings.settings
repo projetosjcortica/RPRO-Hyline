@@ -1,0 +1,78 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JCortica_RPRO.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Cliente" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cliente</Value>
+    </Setting>
+    <Setting Name="IP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IHM</Value>
+    </Setting>
+    <Setting Name="TempLimit" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="Port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="User" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="Senha" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="PathMySql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\MySQL\MySQL Server 5.6\bin</Value>
+    </Setting>
+    <Setting Name="PathDump" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\RPRO\RPRO-Prod\BancoCSV\</Value>
+    </Setting>
+    <Setting Name="PathCSV" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\RPRO\RPRO-Prod\BancoCSV\</Value>
+    </Setting>
+    <Setting Name="NomeCSV" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Relatorio_1.csv</Value>
+    </Setting>
+    <Setting Name="BatDump" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\maqui\Pictures\Leonardo\JCortica RPRO - PV1400\Arquivos Importantes</Value>
+    </Setting>
+    <Setting Name="Caminho" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DadosAno" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2020</Value>
+    </Setting>
+    <Setting Name="DadosMes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">01</Value>
+    </Setting>
+    <Setting Name="Combo1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Combo2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SenhaFTP" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserFTP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">anonymous</Value>
+    </Setting>
+    <Setting Name="MetodoMesCSV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="FormulaCSV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NomeImpressora" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Zebra</Value>
+    </Setting>
+    <Setting Name="TipoImpressora" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Local</Value>
+    </Setting>
+    <Setting Name="NomeComputador" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

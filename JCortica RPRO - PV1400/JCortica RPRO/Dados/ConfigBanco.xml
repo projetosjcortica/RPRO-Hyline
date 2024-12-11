@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+<Config>
+  <IP>XV100</IP>
+  <Tempo>5000</Tempo>
+  <Porta>3306</Porta>
+  <Login>root</Login>
+  <Senha>root</Senha>
+  <Client>Andre</Client>
+</Config>
