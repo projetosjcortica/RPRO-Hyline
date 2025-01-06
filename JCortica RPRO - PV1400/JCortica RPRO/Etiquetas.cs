@@ -1594,30 +1594,5 @@ namespace JCortica_RPRO
         {
             DefineComboBoxSearch();
         }
-
-        private void radioNumeroFormula_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxNumeroFormula_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxNomeFormula_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxCodigoFormula_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FunctionExample()
-        {
-
-        }
     }
 }

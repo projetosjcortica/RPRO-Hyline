@@ -200,6 +200,7 @@
     <Compile Include="Leonardo\Domain\Result\ResultT.cs" />
     <Compile Include="Leonardo\Infrastructure\IHMConnection\FileDetails.cs" />
     <Compile Include="Leonardo\Infrastructure\IHMConnection\IHMConecction.cs" />
+    <Compile Include="Leonardo\Infrastructure\Printers\IronPrint.cs" />
     <Compile Include="Leonardo\Infrastructure\Printers\PrinterSettings.cs" />
     <Compile Include="Leonardo\Infrastructure\Printers\PrinterType.cs" />
     <Compile Include="Leonardo\Infrastructure\Printers\PrinterZebra.cs" />

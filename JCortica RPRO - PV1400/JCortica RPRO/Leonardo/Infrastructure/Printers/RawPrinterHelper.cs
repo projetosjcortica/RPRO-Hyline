@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -38,30 +40,25 @@ namespace Leonardo.Infrastructure.Printers
         [DllImport("winspool.Drv", EntryPoint = "WritePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         public static extern bool WritePrinter(IntPtr hPrinter, IntPtr pBytes, Int32 dwCount, out Int32 dwWritten);
 
-        // SendBytesToPrinter()
-        // When the function is given a printer name and an unmanaged array
-        // of bytes, the function sends those bytes to the print queue.
-        // Returns true on success, false on failure.
+
         public static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount)
         {
             Int32 dwError = 0, dwWritten = 0;
             IntPtr hPrinter = new IntPtr(0);
             DOCINFOA di = new DOCINFOA();
-            bool bSuccess = false; // Assume failure unless you specifically succeed.
+            bool bSuccess = false; 
 
-            di.pDocName = "My C#.NET RAW Document";
+            di.pDocName = "Meu Document";
             di.pDataType = "RAW";
+
 
             // Open the printer.
             if (OpenPrinter(szPrinterName.Normalize(), out hPrinter, IntPtr.Zero))
             {
-                // Start a document.
                 if (StartDocPrinter(hPrinter, 1, di))
                 {
-                    // Start a page.
                     if (StartPagePrinter(hPrinter))
                     {
-                        // Write your bytes.
                         bSuccess = WritePrinter(hPrinter, pBytes, dwCount, out dwWritten);
                         EndPagePrinter(hPrinter);
                     }
@@ -69,8 +66,6 @@ namespace Leonardo.Infrastructure.Printers
                 }
                 ClosePrinter(hPrinter);
             }
-            // If you did not succeed, GetLastError may give more information
-            // about why not.
             if (bSuccess == false)
             {
                 dwError = Marshal.GetLastWin32Error();

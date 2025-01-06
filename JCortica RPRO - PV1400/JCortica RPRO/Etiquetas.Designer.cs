@@ -157,7 +157,6 @@
             this.radioNumeroFormula.TabStop = true;
             this.radioNumeroFormula.Text = "Número Fórmula";
             this.radioNumeroFormula.UseVisualStyleBackColor = true;
-            this.radioNumeroFormula.CheckedChanged += new System.EventHandler(this.radioNumeroFormula_CheckedChanged);
             this.radioNumeroFormula.Click += new System.EventHandler(this.radioNumeroFormula_Click);
             // 
             // comboBoxCodigoFormula
@@ -167,7 +166,6 @@
             this.comboBoxCodigoFormula.Name = "comboBoxCodigoFormula";
             this.comboBoxCodigoFormula.Size = new System.Drawing.Size(139, 24);
             this.comboBoxCodigoFormula.TabIndex = 58;
-            this.comboBoxCodigoFormula.SelectedIndexChanged += new System.EventHandler(this.comboBoxCodigoFormula_SelectedIndexChanged);
             // 
             // comboBoxNomeFormula
             // 
@@ -176,7 +174,6 @@
             this.comboBoxNomeFormula.Name = "comboBoxNomeFormula";
             this.comboBoxNomeFormula.Size = new System.Drawing.Size(139, 24);
             this.comboBoxNomeFormula.TabIndex = 57;
-            this.comboBoxNomeFormula.SelectedIndexChanged += new System.EventHandler(this.comboBoxNomeFormula_SelectedIndexChanged);
             // 
             // comboBoxNumeroFormula
             // 
@@ -185,7 +182,6 @@
             this.comboBoxNumeroFormula.Name = "comboBoxNumeroFormula";
             this.comboBoxNumeroFormula.Size = new System.Drawing.Size(139, 24);
             this.comboBoxNumeroFormula.TabIndex = 56;
-            this.comboBoxNumeroFormula.SelectedIndexChanged += new System.EventHandler(this.comboBoxNumeroFormula_SelectedIndexChanged);
             // 
             // comboBoxDatas2
             // 
