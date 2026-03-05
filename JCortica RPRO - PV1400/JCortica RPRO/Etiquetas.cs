@@ -9,6 +9,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TesteImpresao.Entities;
@@ -80,7 +81,7 @@ namespace JCortica_RPRO
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                var selectedRow = dataGridView1.SelectedRows[0]; 
+                var selectedRow = dataGridView1.SelectedRows[0];
 
                 var labelId = selectedRow.Cells["Id"].Value;
 
@@ -100,10 +101,10 @@ namespace JCortica_RPRO
 
             if ((comboBoxNomeFormula.SelectedItem == null || string.IsNullOrEmpty(comboBoxNomeFormula.SelectedItem.ToString())) &&
                 (comboBoxNumeroFormula.SelectedItem == null || string.IsNullOrEmpty(comboBoxNumeroFormula.SelectedItem.ToString())) &&
-                (comboBoxCodigoFormula.SelectedItem == null || string.IsNullOrEmpty(comboBoxCodigoFormula.SelectedItem.ToString())) || 
-                existId) 
+                (comboBoxCodigoFormula.SelectedItem == null || string.IsNullOrEmpty(comboBoxCodigoFormula.SelectedItem.ToString())) ||
+                existId)
             {
-                
+
                 if (existId)
                 {
                     var label = await SearchById();
@@ -128,7 +129,7 @@ namespace JCortica_RPRO
                         listLabel.Add(resultQuery[i]);
                     }
                 }
-            } 
+            }
             else
             {
                 var DiaInicial = comboBoxDatas.SelectedItem.ToString();
@@ -145,9 +146,9 @@ namespace JCortica_RPRO
                     listLabel.Add(resultQuery[i]);
                 }
             }
-            
 
-            if(listLabel.Count > 0)
+
+            if (listLabel.Count > 0)
             {
                 for (int i = 0; i < listLabel.Count; i++)
                 {
@@ -174,8 +175,8 @@ namespace JCortica_RPRO
                 list.Insert(0, "");
                 comboBoxNumeroFormula.DataSource = list;
                 comboBoxNomeFormula.Enabled = false;
-                comboBoxCodigoFormula.Enabled= false;
-                comboBoxNomeFormula.DataSource = new List<string>() { ""} ;
+                comboBoxCodigoFormula.Enabled = false;
+                comboBoxNomeFormula.DataSource = new List<string>() { "" };
                 comboBoxCodigoFormula.DataSource = new List<string>() { "" };
             }
 
@@ -185,13 +186,13 @@ namespace JCortica_RPRO
                 var list = _labelRepository.GetNomeFormula(DataInicial, DataFinal);
                 list.Insert(0, "");
                 comboBoxNomeFormula.DataSource = list;
-                comboBoxNumeroFormula.Enabled= false;
+                comboBoxNumeroFormula.Enabled = false;
                 comboBoxCodigoFormula.Enabled = false;
                 comboBoxNumeroFormula.DataSource = new List<string>() { "" };
                 comboBoxCodigoFormula.DataSource = new List<string>() { "" };
             }
 
-            if(radioCodigoFormula.Checked)
+            if (radioCodigoFormula.Checked)
             {
                 comboBoxCodigoFormula.Enabled = true;
                 var list = _labelRepository.GetCodigoFormula(DataInicial, DataFinal);
@@ -209,18 +210,18 @@ namespace JCortica_RPRO
             _labelDataTable = CreateEtiquetasDataTable();
 
 
-                for (int i = 0; i < labels.Count; i++)
-                {
-                    var label = labels[i];
-                    var row = CreateRowFromLabel(label);
-                    _labelDataTable.Rows.Add(row);
-                }
+            for (int i = 0; i < labels.Count; i++)
+            {
+                var label = labels[i];
+                var row = CreateRowFromLabel(label);
+                _labelDataTable.Rows.Add(row);
+            }
 
-                dataGridView1.DataSource = _labelDataTable;
-           
+            dataGridView1.DataSource = _labelDataTable;
+
         }
 
-           
+
         private async Task<LabelZebra> SearchById()
         {
             if (!int.TryParse(etiquetaIdBox.Text, out int labelId))
@@ -243,7 +244,7 @@ namespace JCortica_RPRO
             {
                 MessageBox.Show($"Ocorreu um erro: Etiqueta não encontrada.",
                       "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null; 
+                return null;
             }
 
             _currentLabel = label;
@@ -285,7 +286,7 @@ namespace JCortica_RPRO
 
         private void Print2_Click(object sender, EventArgs e)
         {
-            if(_currentLabel == null) return;
+            if (_currentLabel == null) return;
 
             _labelServices.PrintLabel(_currentLabel);
         }
@@ -351,7 +352,7 @@ namespace JCortica_RPRO
                 _countTimer = 0;
             }
         }
- 
+
         private async void automaticPrintLabel()
         {
             var listLabel = await _labelRepository.GetLabelNotPrinter();
@@ -359,24 +360,24 @@ namespace JCortica_RPRO
             {
                 _labelServices.PrintLabel(label);
                 await _labelRepository.UpdateLabelForPrinter(label.Id);
-             }
+            }
         }
 
         private void MockEtiqueta_Click(object sender, EventArgs e)
         {
-   
+
         }
 
         private async void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(IsTimerRunning)
+            if (IsTimerRunning)
             {
                 timer1.Stop();
                 IsTimerRunning = false;
                 btnImpressaoAutomatica.BackgroundImage = Properties.Resources.botao_play;
                 Print2.Enabled = true;
 
-            } 
+            }
             else
             {
                 AtualizaCiclo();
@@ -384,10 +385,10 @@ namespace JCortica_RPRO
 
                 if (listLabel.Count > 0)
                 {
-                        DialogResult resultado = MessageBox.Show($"Existe um total de {listLabel.Count} etiquetas não impressas, deseja imprimir?",
-                                                      "Confirmação",
-                                                      MessageBoxButtons.YesNo,
-                                                      MessageBoxIcon.Question);
+                    DialogResult resultado = MessageBox.Show($"Existe um total de {listLabel.Count} etiquetas não impressas, deseja imprimir?",
+                                                  "Confirmação",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
 
                     if (resultado == DialogResult.Yes)
                     {
@@ -593,7 +594,7 @@ namespace JCortica_RPRO
                                     AtComando3.Parameters.AddWithValue("@data2", str2);
                                     AtComando3.ExecuteNonQuery();
 
-                                    String Atsql3X = "Select Count(*) from cadastro.Tempat1";
+                                    String Atsql3X = "Select Count(*) from cadastro.Temat1";
                                     MySqlCommand Comando3X = new MySqlCommand(Atsql3X, Conexao);
                                     Object Linhas3X;
                                     Linhas3X = Comando3X.ExecuteScalar();
@@ -839,7 +840,7 @@ namespace JCortica_RPRO
                                 listView1.Items.Add(item2);
                                 listView1.Refresh();
                                 */
-                               // pictureBox1.Refresh();
+                                // pictureBox1.Refresh();
                                 Statusbox.Text = str1 + " " + "Atualizado";
                                 Statusbox.Refresh();
 
@@ -1126,7 +1127,7 @@ namespace JCortica_RPRO
 
         }
 
-        private void AtualizaLote()
+        private void AtualizaLoteAntigo()
         {
             String Port = Properties.Settings.Default.Port;
             String User = Properties.Settings.Default.User;
@@ -1546,9 +1547,10 @@ namespace JCortica_RPRO
 
         private void AtualizaCiclo()
         {
-            //ObterInformacao2();
+            ObterInformacao2();
             //AtualizaBanco3_Central();
-            //AtualizaLote();
+            AtualizarBancoPesagem();
+            AtualizaLote();
             CreateLabelsFromDatas();
         }
 
@@ -1558,7 +1560,7 @@ namespace JCortica_RPRO
             var produtoNomes = _labelRepository.GetMateriaPrima();
 
             foreach (var peso in pesos)
-            {      
+            {
                 var lote = _labelRepository.GetLoteFromDate(peso.Dia, peso.Hora);
                 var label = FactoryLabel.Create(produtoNomes, peso, lote);
                 _labelRepository.InsertNewLabel(label);
@@ -1577,7 +1579,7 @@ namespace JCortica_RPRO
                 Datas2.Insert(0, "");
 
                 comboBoxDatas2.DataSource = Datas2;
-            }           
+            }
         }
 
         private void radioNumeroFormula_Click(object sender, EventArgs e)
@@ -1594,5 +1596,423 @@ namespace JCortica_RPRO
         {
             DefineComboBoxSearch();
         }
+
+        private const int TOTAL_PRODUTOS = 24;
+
+        public void AtualizarBancoPesagem()
+        {
+            string connectionString =
+                $"Server={Properties.Settings.Default.Server};" +
+                $"Port={Properties.Settings.Default.Port};" +
+                $"Database=cadastro;" +
+                $"Uid={Properties.Settings.Default.User};" +
+                $"Pwd={Properties.Settings.Default.Senha};";
+
+            using (var conexao = new MySqlConnection(connectionString))
+            {
+                conexao.Open();
+
+                string[] arquivos = Directory
+                    .GetFiles(Properties.Settings.Default.PathCSV, "Pesagem_20*.csv");
+
+                if (arquivos.Length == 0)
+                {
+                    MessageBox.Show("Nenhum arquivo CSV encontrado.");
+                    return;
+                }
+
+                foreach (string arquivo in arquivos)
+                {
+                    ProcessarArquivoCSV(conexao, arquivo);
+                }
+            }
+        }
+
+        private void ProcessarArquivoCSV(MySqlConnection conexao, string arquivo)
+        {
+            FileInfo info = new FileInfo(arquivo);
+
+            string nomeArquivo = Path.GetFileNameWithoutExtension(arquivo);
+
+            // Valida e extrai ano/mês do formato Pesagem_YYYY_MM
+            string[] partes = nomeArquivo.Split('_');
+            if (partes.Length != 3)
+            {
+                Statusbox.Text = $"Formato de arquivo inválido: {nomeArquivo}";
+                return;
+            }
+
+            string codigo = partes[1] + partes[2]; // ex: "2025" + "03" = "202503"
+
+            long tamanhoArquivo = info.Length;
+            DateTime ultimaAlteracao = info.LastWriteTime;
+
+            if (ArquivoJaProcessado(conexao, codigo, tamanhoArquivo))
+            {
+                Statusbox.Text = $"{nomeArquivo} já atualizado.";
+                return;
+            }
+
+            CriarTabelaTemporaria(conexao);
+
+            CarregarCSV(conexao, arquivo);
+
+            int novosRegistros = InserirRegistrosNovos(conexao);
+
+            AtualizarControleArquivo(conexao, codigo, tamanhoArquivo, ultimaAlteracao);
+
+            Statusbox.Text = $"{nomeArquivo} atualizado ({novosRegistros} novos registros)";
+        }
+
+        private void CriarTabelaTemporaria(MySqlConnection conexao)
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine("CREATE TEMPORARY TABLE IF NOT EXISTS tempat1(");
+            sb.AppendLine("dia VARCHAR(10),");
+            sb.AppendLine("hora TIME,");
+            sb.AppendLine("nome_form VARCHAR(50),");
+            sb.AppendLine("numero_form INT,");
+            sb.AppendLine("cod_form INT,");
+            sb.AppendLine("responsavel VARCHAR(50),");
+            sb.AppendLine("observacao VARCHAR(500),");
+            sb.AppendLine("ciclo NVARCHAR(15),");
+
+            for (int i = 1; i <= TOTAL_PRODUTOS; i++)
+            {
+                sb.AppendLine($"prod_{i}_peso INT{(i == TOTAL_PRODUTOS ? "" : ",")}");
+            }
+
+            sb.AppendLine(")");
+
+            new MySqlCommand(sb.ToString(), conexao).ExecuteNonQuery();
+        }
+
+        private void CarregarCSV(MySqlConnection conexao, string arquivo)
+        {
+            string caminho = arquivo.Replace("\\", "/");
+
+            string sql = $@"
+                            LOAD DATA LOCAL INFILE '{caminho}'
+                            INTO TABLE tempat1
+                            FIELDS TERMINATED BY ','
+                            LINES TERMINATED BY '\r\n'";
+
+            new MySqlCommand(sql, conexao).ExecuteNonQuery();
+        }
+
+        private int InserirRegistrosNovos(MySqlConnection conexao)
+        {
+            var colunas = new StringBuilder();
+            var select = new StringBuilder();
+
+            colunas.AppendLine("dia,");
+            colunas.AppendLine("hora,");
+            colunas.AppendLine("nome_form,");
+            colunas.AppendLine("numero_form,");
+            colunas.AppendLine("cod_form,");
+            colunas.AppendLine("responsavel,");
+            colunas.AppendLine("observacao,");
+            colunas.AppendLine("ciclo,");
+
+            select.AppendLine("dia,");
+            select.AppendLine("hora,");
+            select.AppendLine("nome_form,");
+            select.AppendLine("numero_form,");
+            select.AppendLine("cod_form,");
+            select.AppendLine("responsavel,");
+            select.AppendLine("observacao,");
+            select.AppendLine("ciclo,");
+
+            for (int i = 1; i <= TOTAL_PRODUTOS; i++)
+            {
+                colunas.AppendLine($"prod_{i}_peso,");
+                select.AppendLine($"prod_{i}_peso,");
+            }
+
+            colunas.AppendLine("valida");
+            select.AppendLine("FALSE");
+
+            string sql = $@"
+        INSERT IGNORE INTO pesagemcsv(
+            {colunas}
+        )
+        SELECT
+            {select}
+        FROM tempat1";
+
+            return new MySqlCommand(sql, conexao).ExecuteNonQuery();
+        }
+
+        private bool ArquivoJaProcessado(MySqlConnection conexao, string codigo, long tamanho)
+        {
+            string sql = "SELECT tamanho FROM nomearq WHERE codigo = @codigo";
+
+            using (var cmd = new MySqlCommand(sql, conexao))
+            {
+                cmd.Parameters.AddWithValue("@codigo", codigo);
+
+                var result = cmd.ExecuteScalar();
+
+                if (result == null)
+                    return false;
+
+                return Convert.ToInt64(result) == tamanho;
+            }
+        }
+
+
+        private void AtualizarControleArquivo(MySqlConnection conexao, string codigo, long tamanho, DateTime data)
+        {
+            int ano = int.Parse(codigo.Substring(0, 4));
+            int mes = int.Parse(codigo.Substring(4, 2));
+
+            string update = @"
+                    UPDATE nomearq
+                    SET 
+                        Tamanho = @tamanho,
+                        Ultimaarq = @data,
+                        Ultimaban = NOW()
+                    WHERE Codigo = @codigo";
+
+            using (var cmd = new MySqlCommand(update, conexao))
+            {
+                cmd.Parameters.AddWithValue("@codigo", codigo);
+                cmd.Parameters.AddWithValue("@tamanho", tamanho);
+                cmd.Parameters.AddWithValue("@data", data);
+
+                int linhas = cmd.ExecuteNonQuery();
+
+                if (linhas == 0)
+                {
+                    string insert = @"
+                    INSERT INTO nomearq
+                    (Codigo, Ano, Mes, Arquivo, Ultimaarq, Ultimaban, Tamanho, Dtok)
+                    VALUES
+                    (@codigo, @ano, @mes, @arquivo, @data, NOW(), @tamanho, 1)";
+
+                    using (var cmdInsert = new MySqlCommand(insert, conexao))
+                    {
+                        cmdInsert.Parameters.AddWithValue("@codigo", codigo);
+                        cmdInsert.Parameters.AddWithValue("@ano", ano);
+                        cmdInsert.Parameters.AddWithValue("@mes", mes);
+                        cmdInsert.Parameters.AddWithValue("@arquivo", $"Pesagem_{ano}_{mes:00}.csv");
+                        cmdInsert.Parameters.AddWithValue("@data", data);
+                        cmdInsert.Parameters.AddWithValue("@tamanho", tamanho);
+
+                        cmdInsert.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
+        private void AtualizaLote()
+        {
+            string port = Properties.Settings.Default.Port;
+            string user = Properties.Settings.Default.User;
+            string password = Properties.Settings.Default.Senha;
+            string server = Properties.Settings.Default.Server;
+
+            string connString =
+                $"Server={server};port={port};User Id={user};database=cadastro;password={password}";
+
+            string[] arquivos = Directory
+                .GetFiles(Properties.Settings.Default.PathCSV, "Lote*", SearchOption.AllDirectories)
+                .Where(x => x.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                .ToArray();
+
+            if (arquivos.Length == 0)
+                return;
+
+            string arquivo = arquivos[0];
+
+            FileInfo fi = new FileInfo(arquivo);
+
+            DateTime ultimaAtualizacao = fi.LastAccessTime;
+            long pesoArquivo = fi.Length;
+
+            using (var conexao = new MySqlConnection(connString))
+            {
+                conexao.Open();
+
+                DataTable tabelaControle = LerControleArquivo(conexao);
+
+                bool precisaAtualizar = true;
+
+                if (tabelaControle.Rows.Count > 0)
+                {
+                    if (pesoArquivo.ToString() == tabelaControle.Rows[0]["tamanho"].ToString())
+                        precisaAtualizar = false;
+                }
+
+                if (!precisaAtualizar)
+                {
+                    Statusbox.Text = "Registro de Lote Atualizado";
+                    Statusbox.Refresh();
+                    return;
+                }
+
+                Statusbox.Text = "Atualizando Lote";
+                Statusbox.Refresh();
+
+                CriarTabelaTemporariaLote(conexao);
+
+                CarregarCsv(conexao, arquivo);
+
+                if (tabelaControle.Rows.Count > 0)
+                    InserirSomenteNovos(conexao);
+                else
+                    InserirTudo(conexao);
+
+                AtualizarControle(conexao, pesoArquivo, ultimaAtualizacao, tabelaControle.Rows.Count);
+
+                RemoverTabelaTemporaria(conexao);
+            }
+        }
+
+        private DataTable LerControleArquivo(MySqlConnection conexao)
+        {
+            DataTable tabela = new DataTable();
+
+            using (var cmd = new MySqlCommand("SELECT * FROM cadastro.nomearq WHERE codigo = 1", conexao))
+            using (var adapter = new MySqlDataAdapter(cmd))
+            {
+                adapter.Fill(tabela);
+            }
+
+            return tabela;
+        }
+
+        private void CriarTabelaTemporariaLote(MySqlConnection conexao)
+        {
+            string sql = @"
+    CREATE TEMPORARY TABLE temp_lote_csv(
+        dia VARCHAR(10),
+        hora TIME,
+        prod_1_lote INT,
+        prod_2_lote INT,
+        prod_3_lote INT,
+        prod_4_lote INT,
+        prod_5_lote INT,
+        prod_6_lote INT,
+        prod_7_lote INT,
+        prod_8_lote INT,
+        prod_9_lote INT,
+        prod_10_lote INT,
+        prod_11_lote INT,
+        prod_12_lote INT,
+        prod_13_lote INT,
+        prod_14_lote INT,
+        prod_15_lote INT,
+        prod_16_lote INT,
+        prod_17_lote INT,
+        prod_18_lote INT,
+        prod_19_lote INT,
+        prod_20_lote INT,
+        prod_21_lote INT,
+        prod_22_lote INT,
+        prod_23_lote INT,
+        prod_24_lote INT
+    )";
+
+            using (var cmd = new MySqlCommand(sql, conexao))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void CarregarCsv(MySqlConnection conexao, string arquivo)
+        {
+            string path = arquivo.Replace("\\", "/");
+
+            string sql = $@"
+    LOAD DATA LOCAL INFILE '{path}'
+    INTO TABLE temp_lote_csv
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\r\n'";
+
+            using (var cmd = new MySqlCommand(sql, conexao))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void InserirSomenteNovos(MySqlConnection conexao)
+        {
+            string sql = @"
+    INSERT INTO cadastro.lotecsv
+    SELECT t.*
+    FROM temp_lote_csv t
+    LEFT JOIN cadastro.lotecsv l
+    ON t.dia = l.dia AND t.hora = l.hora
+    WHERE l.dia IS NULL";
+
+            using (var cmd = new MySqlCommand(sql, conexao))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void InserirTudo(MySqlConnection conexao)
+        {
+            string sql = @"INSERT INTO cadastro.lotecsv SELECT * FROM temp_lote_csv";
+
+            using (var cmd = new MySqlCommand(sql, conexao))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void AtualizarControle(MySqlConnection conexao, long peso, DateTime ultimaAtualizacao, int registrosControle)
+        {
+            if (registrosControle > 0)
+            {
+                string sql = @"
+        UPDATE cadastro.nomearq
+        SET tamanho = @peso,
+            ultimaarq = @ult_arq,
+            ultimaban = @ult_ban
+        WHERE codigo = 1";
+
+                using (var cmd = new MySqlCommand(sql, conexao))
+                {
+                    cmd.Parameters.AddWithValue("@peso", peso);
+                    cmd.Parameters.AddWithValue("@ult_arq", ultimaAtualizacao);
+                    cmd.Parameters.AddWithValue("@ult_ban", DateTime.Now);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                string sql = @"
+        INSERT INTO cadastro.nomearq
+        (codigo,ano,mes,arquivo,ultimaarq,ultimaban,tamanho,Dtok)
+        VALUES
+        (1,0,0,'Lote.csv',@ult_arq,@ult_ban,@peso,0)";
+
+                using (var cmd = new MySqlCommand(sql, conexao))
+                {
+                    cmd.Parameters.AddWithValue("@ult_arq", ultimaAtualizacao);
+                    cmd.Parameters.AddWithValue("@ult_ban", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@peso", peso);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void RemoverTabelaTemporaria(MySqlConnection conexao)
+        {
+            using (var cmd = new MySqlCommand("DROP TEMPORARY TABLE IF EXISTS temp_lote_csv", conexao))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
+
+
 }
+    
+    

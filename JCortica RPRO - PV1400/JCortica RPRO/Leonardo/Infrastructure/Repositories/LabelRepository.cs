@@ -203,10 +203,10 @@ namespace JCortica_RPRO.Repositories
                             Responsavel = queryResult.GetString("responsavel"),
                             Observacao = queryResult.GetString("observacao"),
                             Valida = queryResult.GetBoolean("valida"),
-                            NumeroFormula = queryResult.GetInt32("numero_form"),
-                            CodigoFormula = queryResult.GetInt32("cod_form"),
-                            NomeFormula = queryResult.GetString("nome_form"),
-                            Ciclo = queryResult.GetString("ciclo"),
+                            NumeroFormula = queryResult.IsDBNull(queryResult.GetOrdinal("numero_form")) ? 0 : queryResult.GetInt32("numero_form"),
+                            CodigoFormula = queryResult.IsDBNull(queryResult.GetOrdinal("cod_form")) ? 0 : queryResult.GetInt32("cod_form"),
+                            NomeFormula = queryResult.IsDBNull(queryResult.GetOrdinal("nome_form")) ? string.Empty : queryResult.GetString("nome_form"),
+                            Ciclo = queryResult.IsDBNull(queryResult.GetOrdinal("ciclo")) ? string.Empty : queryResult.GetString("ciclo"),
                             Pesos = pesos
                         };
 
@@ -220,53 +220,65 @@ namespace JCortica_RPRO.Repositories
 
         public Lotes GetLoteFromDate(string date, TimeSpan hour)
         {
-            //var sql = @"
-            //    SELECT *
-            //    FROM lotecsv
-            //    WHERE dia <= @Dia
-            //      AND hora <= @Hora
-            //    ORDER BY dia DESC, hora DESC
-            //    LIMIT 1
-            //";
-
             var sql = @"
-                SELECT *
-                FROM lotecsv
-                WHERE STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@Dia, '%d/%m/%Y')
-                  AND (hora <= @Hora OR hora = (SELECT MAX(hora) FROM lotecsv WHERE STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@Dia, '%d/%m/%Y')))
-                ORDER BY dia DESC, hora DESC
-                LIMIT 1
-             ";
+                    SELECT *
+                    FROM (
+                        (
+                            SELECT *
+                            FROM lotecsv
+                            WHERE STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s')
+                                  <= STR_TO_DATE(CONCAT(@Dia,' ',@Hora), '%d/%m/%y %H:%i:%s')
+                            ORDER BY STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s') DESC
+                            LIMIT 1
+                        )
+
+                        UNION ALL
+
+                        (
+                            SELECT *
+                            FROM lotecsv
+                            ORDER BY STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s') ASC
+                            LIMIT 1
+                        )
+                    ) t
+                    LIMIT 1;
+                    ";
 
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
 
-                MySqlCommand command = new MySqlCommand(sql, connection);
-
-                command.Parameters.AddWithValue("@Dia", date);
-                command.Parameters.AddWithValue("@Hora", hour.ToString(@"hh\:mm\:ss"));
-
-                using (MySqlDataReader queryResult = command.ExecuteReader())
+                using (MySqlCommand command = new MySqlCommand(sql, connection))
                 {
-                    queryResult.Read();
+                    command.Parameters.AddWithValue("@Dia", date);
+                    command.Parameters.AddWithValue("@Hora", hour.ToString(@"hh\:mm\:ss"));
 
-                    var lotes = new List<int>();
-
-                    for(int i = 1; i <= 24; i++)
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        lotes.Add(queryResult.GetInt32($"prod_{i}_lote"));
-                    }
+                        if (!reader.Read())
+                            return null;
 
-                   return new Lotes
-                   {
-                       Dia = queryResult.GetString("dia"),
-                       Hora = queryResult.GetTimeSpan("hora"),
-                       NumeroLotes = lotes
-                   };
+                        var lotes = new List<int>();
+
+                        for (int i = 1; i <= 24; i++)
+                        {
+                            int index = reader.GetOrdinal($"prod_{i}_lote");
+
+                            if (!reader.IsDBNull(index))
+                                lotes.Add(reader.GetInt32(index));
+                            else
+                                lotes.Add(0);
+                        }
+
+                        return new Lotes
+                        {
+                            Dia = reader.GetString(reader.GetOrdinal("dia")),
+                            Hora = reader.GetTimeSpan(reader.GetOrdinal("hora")),
+                            NumeroLotes = lotes
+                        };
+                    }
                 }
             }
-
         }
 
         public void InsertNewLabel(LabelZebra label)

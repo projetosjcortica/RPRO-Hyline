@@ -45,7 +45,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Statusbox2 = new System.Windows.Forms.TextBox();
             this.Statusbox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tempoAtualização = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -106,7 +105,6 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.Statusbox2);
             this.panel1.Controls.Add(this.Statusbox);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tempoAtualização);
             this.panel1.Controls.Add(this.label3);
@@ -229,7 +227,7 @@
             this.Statusbox2.Margin = new System.Windows.Forms.Padding(4);
             this.Statusbox2.Name = "Statusbox2";
             this.Statusbox2.ReadOnly = true;
-            this.Statusbox2.Size = new System.Drawing.Size(92, 19);
+            this.Statusbox2.Size = new System.Drawing.Size(175, 19);
             this.Statusbox2.TabIndex = 51;
             this.Statusbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -244,26 +242,9 @@
             this.Statusbox.Margin = new System.Windows.Forms.Padding(4);
             this.Statusbox.Name = "Statusbox";
             this.Statusbox.ReadOnly = true;
-            this.Statusbox.Size = new System.Drawing.Size(92, 19);
+            this.Statusbox.Size = new System.Drawing.Size(175, 19);
             this.Statusbox.TabIndex = 41;
             this.Statusbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(1538, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 92);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "Teste Atualização";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -426,7 +407,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tempoAtualização;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox Statusbox;
         private System.Windows.Forms.TextBox Statusbox2;
         private System.Windows.Forms.Label label6;

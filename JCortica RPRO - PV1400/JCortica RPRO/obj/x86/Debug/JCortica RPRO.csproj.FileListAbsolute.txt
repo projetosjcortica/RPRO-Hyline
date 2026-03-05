@@ -207,3 +207,27 @@ C:\Users\maqui\Desktop\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\
 C:\Users\maqui\Desktop\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica.0EB09B0F.Up2Date
 C:\Users\maqui\Desktop\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica RPRO.exe
 C:\Users\maqui\Desktop\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica RPRO.pdb
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\bin\x86\Debug\JCortica RPRO.exe.config
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\bin\x86\Debug\JCortica RPRO.exe
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\bin\x86\Debug\JCortica RPRO.pdb
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\bin\x86\Debug\MySql.Data.dll
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica RPRO.csproj.AssemblyReference.cache
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.AtuaInicial.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.AtualizaForm.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.AtualizarForm2.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.Config.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.DataHora.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.Etiquetas.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.Form1.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.Form3.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.FtpInformacao.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.MatPrima.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.Properties.Resources.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.Relat1Form.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.RelatorioData.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica_RPRO.Splash.resources
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica RPRO.csproj.GenerateResource.cache
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica RPRO.csproj.CoreCompileInputs.cache
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica.0EB09B0F.Up2Date
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica RPRO.exe
+C:\RPRO-Hyline\JCortica RPRO - PV1400\JCortica RPRO\obj\x86\Debug\JCortica RPRO.pdb

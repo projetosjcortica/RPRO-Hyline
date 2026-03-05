@@ -1,37 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\",
+  "WorkspaceRootPath": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|c:\\users\\maqui\\desktop\\rpro-hyline\\jcortica rpro - pv1400\\jcortica rpro\\leonardo\\infrastructure\\printers\\rawprinterhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\infrastructure\\printers\\rawprinterhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\domain\\entities\\labelzebra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\domain\\entities\\labelzebra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\infrastructure\\printers\\ironprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\infrastructure\\printers\\ironprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\infrastructure\\printers\\printersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\infrastructure\\printers\\printersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\infrastructure\\repositories\\labelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\infrastructure\\repositories\\labelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\infrastructure\\repositories\\labelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\etiquetas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|c:\\rpro-hyline\\jcortica rpro - pv1400\\jcortica rpro\\leonardo\\infrastructure\\printers\\rawprinterhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\infrastructure\\printers\\rawprinterhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\domain\\entities\\labelzebra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\domain\\entities\\labelzebra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\infrastructure\\printers\\ironprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\infrastructure\\printers\\ironprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\leonardo\\infrastructure\\printers\\printersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\leonardo\\infrastructure\\printers\\printersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\etiquetas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\etiquetas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\etiquetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\etiquetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\etiquetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\etiquetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\jcortica rpro\\etiquetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F5A12DF-F667-44E2-816A-1757FA685770}|JCortica RPRO\\JCortica RPRO.csproj|solutionrelative:jcortica rpro\\etiquetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -42,15 +42,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Etiquetas.cs",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Etiquetas.cs",
-              "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs",
+              "ToolTip": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs",
               "RelativeToolTip": "JCortica RPRO\\Etiquetas.cs",
               "ViewState": "AgIAACYGAAAAAAAAAAAiwDsGAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -66,29 +66,25 @@
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "RawPrinterHelper.cs",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\RawPrinterHelper.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\RawPrinterHelper.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\RawPrinterHelper.cs",
-              "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\RawPrinterHelper.cs",
+              "ToolTip": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\RawPrinterHelper.cs",
               "RelativeToolTip": "JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\RawPrinterHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwAoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T19:44:06.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IronPrint.cs",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\IronPrint.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\IronPrint.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\IronPrint.cs",
-              "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\IronPrint.cs",
+              "ToolTip": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\IronPrint.cs",
               "RelativeToolTip": "JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\IronPrint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -96,11 +92,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PrinterSettings.cs",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\PrinterSettings.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\PrinterSettings.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\PrinterSettings.cs",
-              "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\PrinterSettings.cs",
+              "ToolTip": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\PrinterSettings.cs",
               "RelativeToolTip": "JCortica RPRO\\Leonardo\\Infrastructure\\Printers\\PrinterSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -110,9 +106,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Etiquetas.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.Designer.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.Designer.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Etiquetas.Designer.cs",
-              "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.Designer.cs",
+              "ToolTip": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.Designer.cs",
               "RelativeToolTip": "JCortica RPRO\\Etiquetas.Designer.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAAAnwLcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -122,37 +118,37 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Etiquetas.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Etiquetas.cs",
               "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs [Design]",
-              "RelativeToolTip": "JCortica RPRO\\Etiquetas.cs [Design]",
+              "RelativeToolTip": "..\\..\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Etiquetas.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T10:19:19.882Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "LabelZebra.cs",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Domain\\Entities\\LabelZebra.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Domain\\Entities\\LabelZebra.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Leonardo\\Domain\\Entities\\LabelZebra.cs",
-              "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Domain\\Entities\\LabelZebra.cs",
+              "ToolTip": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Domain\\Entities\\LabelZebra.cs",
               "RelativeToolTip": "JCortica RPRO\\Leonardo\\Domain\\Entities\\LabelZebra.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAuwJoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T10:32:39.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-10T10:32:39.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "LabelRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Repositories\\LabelRepository.cs",
+              "DocumentMoniker": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Repositories\\LabelRepository.cs",
               "RelativeDocumentMoniker": "JCortica RPRO\\Leonardo\\Infrastructure\\Repositories\\LabelRepository.cs",
-              "ToolTip": "C:\\Users\\maqui\\Desktop\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Repositories\\LabelRepository.cs",
+              "ToolTip": "C:\\RPRO-Hyline\\JCortica RPRO - PV1400\\JCortica RPRO\\Leonardo\\Infrastructure\\Repositories\\LabelRepository.cs",
               "RelativeToolTip": "JCortica RPRO\\Leonardo\\Infrastructure\\Repositories\\LabelRepository.cs",
-              "ViewState": "AgIAACgCAAAAAAAAAAAawC8CAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIoBAAAAAAAAAAAtwJIBAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T16:51:15.3Z"
+              "WhenOpened": "2024-11-18T16:51:15.3Z",
+              "EditorCaption": ""
             }
           ]
         }
