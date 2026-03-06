@@ -96,6 +96,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.editImpressoraButton = new System.Windows.Forms.Button();
             this.salvarImpressoraButton = new System.Windows.Forms.Button();
+            this.escuridaoEtiquetaBox = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -802,6 +804,8 @@
             // 
             this.tabPage3.Controls.Add(this.salvarImpressoraButton);
             this.tabPage3.Controls.Add(this.editImpressoraButton);
+            this.tabPage3.Controls.Add(this.escuridaoEtiquetaBox);
+            this.tabPage3.Controls.Add(this.label27);
             this.tabPage3.Controls.Add(this.label26);
             this.tabPage3.Controls.Add(this.radioRede);
             this.tabPage3.Controls.Add(this.radioLocal);
@@ -910,6 +914,23 @@
             this.salvarImpressoraButton.UseVisualStyleBackColor = true;
             this.salvarImpressoraButton.Click += new System.EventHandler(this.salvarImpressoraButton_Click);
             // 
+            // escuridaoEtiquetaBox
+            // 
+            this.escuridaoEtiquetaBox.Enabled = false;
+            this.escuridaoEtiquetaBox.Location = new System.Drawing.Point(27, 216);
+            this.escuridaoEtiquetaBox.Name = "escuridaoEtiquetaBox";
+            this.escuridaoEtiquetaBox.Size = new System.Drawing.Size(189, 22);
+            this.escuridaoEtiquetaBox.TabIndex = 17;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(24, 197);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(120, 16);
+            this.label27.TabIndex = 18;
+            this.label27.Text = "Escuridão (1 a 30):";
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1011,5 +1032,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button salvarImpressoraButton;
         private System.Windows.Forms.Button editImpressoraButton;
+        private System.Windows.Forms.TextBox escuridaoEtiquetaBox;
+        private System.Windows.Forms.Label label27;
     }
 }

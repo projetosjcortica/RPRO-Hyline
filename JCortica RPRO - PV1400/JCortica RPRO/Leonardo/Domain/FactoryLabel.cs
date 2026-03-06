@@ -29,7 +29,8 @@ namespace JCortica_RPRO.Leonardo.Domain
                  .SetNumeroFormula(peso.NumeroFormula)
                  .SetCodigoFormula(peso.CodigoFormula)
                  .SetNomeFormula(peso.NomeFormula)
-                 .SetCiclo(peso.Ciclo);
+                  .SetCiclo(peso.Ciclo)
+                  .SetEscuridao(Properties.Settings.Default.EscuridaoEtiqueta);
 
             return label;          
         }

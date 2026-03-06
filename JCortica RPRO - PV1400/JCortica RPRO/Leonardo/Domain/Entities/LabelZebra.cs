@@ -21,6 +21,7 @@ namespace TesteImpresao.Entities
         public string NomeFormula { get; set; }
         public int NumeroFormula { get; set; }
         public int CodigoFormula { get; set; }
+        public int Escuridao { get; private set; } = 30;
         private string LabelCode { get; set; }
        
         public LabelZebra()
@@ -96,6 +97,24 @@ namespace TesteImpresao.Entities
             CodigoFormula = codigoFormula;
             return this;
         }
+
+        public LabelZebra SetEscuridao(int escuridao)
+        {
+            if (escuridao < 1)
+            {
+                Escuridao = 1;
+                return this;
+            }
+
+            if (escuridao > 30)
+            {
+                Escuridao = 30;
+                return this;
+            }
+
+            Escuridao = escuridao;
+            return this;
+        }
         public LabelZebra CreateNewLineProductTable(LabelItem labelItem, int index)
         {
             var startTextY = 484;
@@ -136,7 +155,7 @@ namespace TesteImpresao.Entities
                 ^LH0,0
                 ^JMA
                 ^PR3,5
-                ~SD30
+                ~SD{Escuridao}
                 ^JUS
                 ^LRN
                 ^CI27

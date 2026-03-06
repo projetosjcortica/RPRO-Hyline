@@ -186,7 +186,45 @@ namespace JCortica_RPRO
 
             nomeImpressoraBox.Text = Properties.Settings.Default.NomeImpressora;
             nomeComputadorBox.Text = Properties.Settings.Default.NomeComputador;
+            escuridaoEtiquetaBox.Text = AjustarEscuridao(Properties.Settings.Default.EscuridaoEtiqueta).ToString();
 
+        }
+
+        private int AjustarEscuridao(int escuridao)
+        {
+            if (escuridao < 1)
+            {
+                return 1;
+            }
+
+            if (escuridao > 30)
+            {
+                return 30;
+            }
+
+            return escuridao;
+        }
+
+        private bool TentarObterEscuridao(out int escuridao)
+        {
+            escuridao = 30;
+
+            if (!int.TryParse(escuridaoEtiquetaBox.Text, out int valor))
+            {
+                MessageBox.Show("A escuridão da etiqueta deve ser um número entre 1 e 30.");
+                escuridaoEtiquetaBox.Focus();
+                return false;
+            }
+
+            if (valor < 1 || valor > 30)
+            {
+                MessageBox.Show("A escuridão da etiqueta deve estar entre 1 e 30.");
+                escuridaoEtiquetaBox.Focus();
+                return false;
+            }
+
+            escuridao = valor;
+            return true;
         }
 
         private void cmd_edit_Click(object sender, EventArgs e)
@@ -571,6 +609,7 @@ namespace JCortica_RPRO
         {
             nomeImpressoraBox.Enabled = true;
             nomeComputadorBox.Enabled = true;
+            escuridaoEtiquetaBox.Enabled = true;
 
             radioLocal.Enabled = true;
             radioRede.Enabled = true;
@@ -580,8 +619,14 @@ namespace JCortica_RPRO
 
         private void salvarImpressoraButton_Click(object sender, EventArgs e)
         {
+            if (!TentarObterEscuridao(out int escuridao))
+            {
+                return;
+            }
+
             Properties.Settings.Default.NomeImpressora = nomeImpressoraBox.Text;
             Properties.Settings.Default.NomeComputador = nomeComputadorBox.Text;
+            Properties.Settings.Default.EscuridaoEtiqueta = escuridao;
 
             if (radioLocal.Checked == true)
                 Properties.Settings.Default.TipoImpressora = "Local";

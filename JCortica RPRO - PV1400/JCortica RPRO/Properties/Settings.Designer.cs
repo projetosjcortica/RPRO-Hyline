@@ -310,5 +310,17 @@ namespace JCortica_RPRO.Properties {
                 this["NomeComputador"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int EscuridaoEtiqueta {
+            get {
+                return ((int)(this["EscuridaoEtiqueta"]));
+            }
+            set {
+                this["EscuridaoEtiqueta"] = value;
+            }
+        }
     }
 }

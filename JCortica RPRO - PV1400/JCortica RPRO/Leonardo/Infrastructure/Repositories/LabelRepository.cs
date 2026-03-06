@@ -567,7 +567,8 @@ namespace JCortica_RPRO.Repositories
 
             if(!string.IsNullOrEmpty(dataInicial) && !string.IsNullOrEmpty(dataFinal))
             {
-                sql += " AND dia >= @DataInicial AND dia <= @DataFinal";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DataInicial, '%d/%m/%Y')";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
 
             var produtosNome = GetMateriaPrima();
@@ -638,7 +639,8 @@ namespace JCortica_RPRO.Repositories
             }
             else
             {
-                sql += " AND dia >= @DataInicial AND dia <= @DataFinal";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DataInicial, '%d/%m/%Y')";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
 
             using (var connection = new MySqlConnection(_connectionString))
@@ -681,7 +683,8 @@ namespace JCortica_RPRO.Repositories
             }
             else
             {
-                sql += " AND dia >= @DataInicial AND dia <= @DataFinal";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DataInicial, '%d/%m/%Y')";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
 
             using (var connection = new MySqlConnection(_connectionString))
@@ -724,7 +727,8 @@ namespace JCortica_RPRO.Repositories
             }
             else
             {
-                sql += " AND dia >= @DataInicial AND dia <= @DataFinal";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DataInicial, '%d/%m/%Y')";
+                sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
 
             using (var connection = new MySqlConnection(_connectionString))

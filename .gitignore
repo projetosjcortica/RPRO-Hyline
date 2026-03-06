@@ -1,1 +1,27 @@
 .vs/
+
+# Build outputs
+**/bin/
+**/obj/
+
+# Visual Studio user files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Debug symbols / profiling
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Logs and temp files
+*.log
+*.tmp
+*.cache
+
+# Rider / ReSharper
+.idea/
+_ReSharper*/
+*.[Rr]e[Ss]harper

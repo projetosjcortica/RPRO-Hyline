@@ -188,6 +188,7 @@
             this.comboBoxDatas2.Name = "comboBoxDatas2";
             this.comboBoxDatas2.Size = new System.Drawing.Size(136, 24);
             this.comboBoxDatas2.TabIndex = 55;
+            this.comboBoxDatas2.SelectedIndexChanged += new System.EventHandler(this.comboBoxDatas2_SelectedIndexChanged);
             // 
             // label7
             // 

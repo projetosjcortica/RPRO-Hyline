@@ -111,9 +111,15 @@ namespace JCortica_RPRO
                     if (label != null)
                         listLabel.Add(label);
                 }
-                else if (comboBoxDatas2.SelectedItem.ToString() != "")
+                else if (!string.IsNullOrEmpty(comboBoxDatas2.SelectedItem?.ToString()))
                 {
                     var resultQuery = await SearchByPeriod();
+
+                    if (resultQuery == null)
+                    {
+                        dataGridView1.DataSource = _labelDataTable;
+                        return;
+                    }
 
                     for (int i = 0; i < resultQuery.Count; i++)
                     {
@@ -124,6 +130,12 @@ namespace JCortica_RPRO
                 {
                     var resultQuery = await SearchByData();
 
+                    if (resultQuery == null)
+                    {
+                        dataGridView1.DataSource = _labelDataTable;
+                        return;
+                    }
+
                     for (int i = 0; i < resultQuery.Count; i++)
                     {
                         listLabel.Add(resultQuery[i]);
@@ -132,11 +144,11 @@ namespace JCortica_RPRO
             }
             else
             {
-                var DiaInicial = comboBoxDatas.SelectedItem.ToString();
-                var DiaFinal = comboBoxDatas2.SelectedItem.ToString();
-                var NumeroFormula = comboBoxNumeroFormula.SelectedItem.ToString();
-                var CodigoFormula = comboBoxCodigoFormula.SelectedItem.ToString();
-                var NomeFormula = comboBoxNomeFormula.SelectedItem.ToString();
+                var DiaInicial = comboBoxDatas.SelectedItem?.ToString() ?? string.Empty;
+                var DiaFinal = comboBoxDatas2.SelectedItem?.ToString() ?? string.Empty;
+                var NumeroFormula = comboBoxNumeroFormula.SelectedItem?.ToString() ?? string.Empty;
+                var CodigoFormula = comboBoxCodigoFormula.SelectedItem?.ToString() ?? string.Empty;
+                var NomeFormula = comboBoxNomeFormula.SelectedItem?.ToString() ?? string.Empty;
 
 
                 var resultQuery = await _labelRepository.GetLabelAdvancedSearch(NomeFormula, NumeroFormula, CodigoFormula, DiaInicial, DiaFinal);
@@ -156,17 +168,28 @@ namespace JCortica_RPRO
                     var row = CreateRowFromLabel(label);
                     _labelDataTable.Rows.Add(row);
                 }
-
-                dataGridView1.DataSource = _labelDataTable;
             }
+
+            dataGridView1.DataSource = _labelDataTable;
 
             DefineComboBoxSearch();
         }
 
         private void DefineComboBoxSearch()
         {
-            var DataInicial = comboBoxDatas.SelectedItem.ToString();
-            var DataFinal = comboBoxDatas2.SelectedItem.ToString();
+            var DataInicial = comboBoxDatas.SelectedItem?.ToString() ?? string.Empty;
+            var DataFinal = comboBoxDatas2.SelectedItem?.ToString() ?? string.Empty;
+
+            if (string.IsNullOrEmpty(DataInicial))
+            {
+                comboBoxNumeroFormula.Enabled = false;
+                comboBoxNomeFormula.Enabled = false;
+                comboBoxCodigoFormula.Enabled = false;
+                comboBoxNumeroFormula.DataSource = new List<string>() { "" };
+                comboBoxNomeFormula.DataSource = new List<string>() { "" };
+                comboBoxCodigoFormula.DataSource = new List<string>() { "" };
+                return;
+            }
 
             if (radioNumeroFormula.Checked)
             {
@@ -275,7 +298,7 @@ namespace JCortica_RPRO
                 return null;
             }
 
-            if (string.IsNullOrEmpty(diaInicial))
+            if (string.IsNullOrEmpty(diaFinal))
             {
                 MessageBox.Show("Por favor, selecione um dia válido em data final.");
                 return null;
@@ -1570,7 +1593,13 @@ namespace JCortica_RPRO
 
         private void comboBoxDatas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var dataSelect = comboBoxDatas.SelectedItem.ToString();
+            var dataSelect = comboBoxDatas.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(dataSelect) || _Dias == null || _Dias.Count == 0)
+            {
+                comboBoxDatas2.DataSource = new List<string>() { "" };
+                return;
+            }
 
             var index = _Dias.IndexOf(dataSelect);
             if (index >= 0)
@@ -2010,6 +2039,10 @@ namespace JCortica_RPRO
             }
         }
 
+        private void comboBoxDatas2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
