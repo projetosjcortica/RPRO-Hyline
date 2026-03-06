@@ -224,11 +224,11 @@
             this.Statusbox2.Enabled = false;
             this.Statusbox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Statusbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Statusbox2.Location = new System.Drawing.Point(198, 88);
+            this.Statusbox2.Location = new System.Drawing.Point(193, 84);
             this.Statusbox2.Margin = new System.Windows.Forms.Padding(4);
             this.Statusbox2.Name = "Statusbox2";
             this.Statusbox2.ReadOnly = true;
-            this.Statusbox2.Size = new System.Drawing.Size(175, 19);
+            this.Statusbox2.Size = new System.Drawing.Size(202, 19);
             this.Statusbox2.TabIndex = 51;
             this.Statusbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -239,11 +239,11 @@
             this.Statusbox.Enabled = false;
             this.Statusbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Statusbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Statusbox.Location = new System.Drawing.Point(198, 109);
+            this.Statusbox.Location = new System.Drawing.Point(193, 111);
             this.Statusbox.Margin = new System.Windows.Forms.Padding(4);
             this.Statusbox.Name = "Statusbox";
             this.Statusbox.ReadOnly = true;
-            this.Statusbox.Size = new System.Drawing.Size(175, 19);
+            this.Statusbox.Size = new System.Drawing.Size(202, 19);
             this.Statusbox.TabIndex = 41;
             this.Statusbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

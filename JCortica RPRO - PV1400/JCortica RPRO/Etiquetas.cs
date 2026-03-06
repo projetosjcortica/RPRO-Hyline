@@ -27,6 +27,7 @@ namespace JCortica_RPRO
         private LabelRepository _labelRepository;
         private LabelServices _labelServices;
         private int _countTimer;
+        private bool _isUpdating;
 
         public List<string> _Dias { get; private set; }
 
@@ -56,14 +57,8 @@ namespace JCortica_RPRO
         private void Etiquetas_Load(object sender, EventArgs e)
         {
             tempoAtualização.Text = TimeInSeg.ToString();
-            _Dias = _labelRepository.GetAllDates();
-
-            var Datas = new List<string>(_Dias);
-            var Datas2 = new List<string>(_Dias);
-            Datas2.Insert(0, "");
-
-            comboBoxDatas.DataSource = Datas;
-            comboBoxDatas2.DataSource = Datas2;
+            var dias = _labelRepository.GetAllDates();
+            RefreshDateDropdowns(dias);
 
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
 
@@ -362,7 +357,7 @@ namespace JCortica_RPRO
             return row;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             _countTimer++;
             TimeInSeg = TimeInSeg = int.Parse(tempoAtualização.Text);
@@ -370,13 +365,13 @@ namespace JCortica_RPRO
 
             if (TimeInterval)
             {
-                AtualizaCiclo();
-                automaticPrintLabel();
+                await AtualizaCicloAsync();
+                await automaticPrintLabel();
                 _countTimer = 0;
             }
         }
 
-        private async void automaticPrintLabel()
+        private async Task automaticPrintLabel()
         {
             var listLabel = await _labelRepository.GetLabelNotPrinter();
             foreach (var label in listLabel)
@@ -403,7 +398,7 @@ namespace JCortica_RPRO
             }
             else
             {
-                AtualizaCiclo();
+                await AtualizaCicloAsync();
                 var listLabel = await _labelRepository.GetLabelNotPrinter();
 
                 if (listLabel.Count > 0)
@@ -1494,11 +1489,7 @@ namespace JCortica_RPRO
 
                     if (linhasC != 0)
                     {
-
-                        if (tabelanomes.Rows[0]["Dtok"].ToString() == "True")
-                        {
-                            Proximo = true;
-                        }
+                        Proximo = false;
                     }
 
                     if (Proximo == false)
@@ -1534,8 +1525,7 @@ namespace JCortica_RPRO
                         int bytesReceived = 0;
                         int bytesconvertido = 0;
 
-                        Statusbox.Text = "Baixando arquivo " + item;
-                        Statusbox.Refresh();
+                        SetStatusTextSafe("Baixando arquivo " + item);
                         //pictureBox1.Refresh();
 
 
@@ -1546,8 +1536,7 @@ namespace JCortica_RPRO
                             readCount = responseStream.Read(buffer, 0, buffer.Length);
                             bytesReceived += readCount;
                             bytesconvertido = bytesReceived / 100;
-                            Statusbox2.Text = bytesconvertido.ToString() + "Kb";
-                            Statusbox2.Refresh();
+                            SetStatus2TextSafe(bytesconvertido.ToString() + "Kb");
                             //pictureBox1.Refresh();
                         }
                         newFile.Close();
@@ -1557,7 +1546,7 @@ namespace JCortica_RPRO
                     }
 
                 }
-                Statusbox2.Text = "";
+                SetStatus2TextSafe("");
             }
             ArquivosnoFTP.Clear();
         }
@@ -1565,16 +1554,117 @@ namespace JCortica_RPRO
         private void button1_Click(object sender, EventArgs e)
         {
             //Baixa Arquivo FTP
-            AtualizaCiclo();
+            _ = AtualizaCicloAsync();
         }
 
-        private void AtualizaCiclo()
+        private async Task AtualizaCicloAsync()
         {
-            ObterInformacao2();
-            //AtualizaBanco3_Central();
-            AtualizarBancoPesagem();
-            AtualizaLote();
-            CreateLabelsFromDatas();
+            if (_isUpdating)
+                return;
+
+            _isUpdating = true;
+
+            try
+            {
+                await Task.Run(() => ObterInformacao2());
+                await Task.Run(() => AtualizarBancoPesagem());
+                await Task.Run(() => AtualizaLote());
+                await Task.Run(() => CreateLabelsFromDatas());
+                await RefreshDateDropdownsAfterUpdateAsync();
+            }
+            catch (Exception ex)
+            {
+                ShowMessageSafe($"Erro durante atualização: {ex.Message}");
+            }
+            finally
+            {
+                _isUpdating = false;
+            }
+        }
+
+        private void SetStatusTextSafe(string text)
+        {
+            if (Statusbox.InvokeRequired)
+            {
+                Statusbox.BeginInvoke((Action)(() =>
+                {
+                    Statusbox.Text = text;
+                    Statusbox.Refresh();
+                }));
+                return;
+            }
+
+            Statusbox.Text = text;
+            Statusbox.Refresh();
+        }
+
+        private void SetStatus2TextSafe(string text)
+        {
+            if (Statusbox2.InvokeRequired)
+            {
+                Statusbox2.BeginInvoke((Action)(() =>
+                {
+                    Statusbox2.Text = text;
+                    Statusbox2.Refresh();
+                }));
+                return;
+            }
+
+            Statusbox2.Text = text;
+            Statusbox2.Refresh();
+        }
+
+        private void ShowMessageSafe(string message)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke((Action)(() => MessageBox.Show(message)));
+                return;
+            }
+
+            MessageBox.Show(message);
+        }
+
+        private void RefreshDateDropdowns(List<string> dias)
+        {
+            var selectedDataInicial = comboBoxDatas.SelectedItem?.ToString();
+            var selectedDataFinal = comboBoxDatas2.SelectedItem?.ToString();
+
+            _Dias = dias ?? new List<string>();
+
+            var Datas = new List<string>(_Dias);
+            var Datas2 = new List<string>(_Dias);
+            Datas2.Insert(0, "");
+
+            comboBoxDatas.DataSource = null;
+            comboBoxDatas2.DataSource = null;
+
+            comboBoxDatas.DataSource = Datas;
+            comboBoxDatas2.DataSource = Datas2;
+
+            if (!string.IsNullOrEmpty(selectedDataInicial) && Datas.Contains(selectedDataInicial))
+                comboBoxDatas.SelectedItem = selectedDataInicial;
+
+            if (!string.IsNullOrEmpty(selectedDataFinal) && Datas2.Contains(selectedDataFinal))
+                comboBoxDatas2.SelectedItem = selectedDataFinal;
+
+            DefineComboBoxSearch();
+        }
+
+        private async Task RefreshDateDropdownsAfterUpdateAsync()
+        {
+            var dias = await Task.Run(() => _labelRepository.GetAllDates());
+
+            if (IsDisposed)
+                return;
+
+            if (InvokeRequired)
+            {
+                BeginInvoke((Action)(() => RefreshDateDropdowns(dias)));
+                return;
+            }
+
+            RefreshDateDropdowns(dias);
         }
 
         private void CreateLabelsFromDatas()
@@ -1646,7 +1736,7 @@ namespace JCortica_RPRO
 
                 if (arquivos.Length == 0)
                 {
-                    MessageBox.Show("Nenhum arquivo CSV encontrado.");
+                    ShowMessageSafe("Nenhum arquivo CSV encontrado.");
                     return;
                 }
 
@@ -1667,7 +1757,7 @@ namespace JCortica_RPRO
             string[] partes = nomeArquivo.Split('_');
             if (partes.Length != 3)
             {
-                Statusbox.Text = $"Formato de arquivo inválido: {nomeArquivo}";
+                SetStatusTextSafe($"Formato de arquivo inválido: {nomeArquivo}");
                 return;
             }
 
@@ -1678,7 +1768,7 @@ namespace JCortica_RPRO
 
             if (ArquivoJaProcessado(conexao, codigo, tamanhoArquivo))
             {
-                Statusbox.Text = $"{nomeArquivo} já atualizado.";
+                SetStatusTextSafe($"{nomeArquivo} já atualizado.");
                 return;
             }
 
@@ -1690,7 +1780,7 @@ namespace JCortica_RPRO
 
             AtualizarControleArquivo(conexao, codigo, tamanhoArquivo, ultimaAlteracao);
 
-            Statusbox.Text = $"{nomeArquivo} atualizado ({novosRegistros} novos registros)";
+            SetStatusTextSafe($"{nomeArquivo} atualizado ({novosRegistros} novos registros)");
         }
 
         private void CriarTabelaTemporaria(MySqlConnection conexao)
@@ -1876,13 +1966,11 @@ namespace JCortica_RPRO
 
                 if (!precisaAtualizar)
                 {
-                    Statusbox.Text = "Registro de Lote Atualizado";
-                    Statusbox.Refresh();
+                    SetStatusTextSafe("Registro de Lote Atualizado");
                     return;
                 }
 
-                Statusbox.Text = "Atualizando Lote";
-                Statusbox.Refresh();
+                SetStatusTextSafe("Atualizando Lote");
 
                 CriarTabelaTemporariaLote(conexao);
 
@@ -1974,7 +2062,9 @@ namespace JCortica_RPRO
     FROM temp_lote_csv t
     LEFT JOIN cadastro.lotecsv l
     ON t.dia = l.dia AND t.hora = l.hora
-    WHERE l.dia IS NULL";
+        WHERE l.dia IS NULL
+            AND NULLIF(TRIM(t.dia), '') IS NOT NULL
+            AND t.hora IS NOT NULL";
 
             using (var cmd = new MySqlCommand(sql, conexao))
             {
@@ -1984,7 +2074,12 @@ namespace JCortica_RPRO
 
         private void InserirTudo(MySqlConnection conexao)
         {
-            string sql = @"INSERT INTO cadastro.lotecsv SELECT * FROM temp_lote_csv";
+                        string sql = @"
+        INSERT INTO cadastro.lotecsv
+        SELECT *
+        FROM temp_lote_csv
+        WHERE NULLIF(TRIM(dia), '') IS NOT NULL
+            AND hora IS NOT NULL";
 
             using (var cmd = new MySqlCommand(sql, conexao))
             {

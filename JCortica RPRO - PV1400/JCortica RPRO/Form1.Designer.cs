@@ -104,7 +104,7 @@
             // 
             this.eitquetasToolStripMenuItem.Name = "eitquetasToolStripMenuItem";
             this.eitquetasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.eitquetasToolStripMenuItem.Text = "Eitquetas";
+            this.eitquetasToolStripMenuItem.Text = "Etiquetas";
             this.eitquetasToolStripMenuItem.Click += new System.EventHandler(this.eitquetasToolStripMenuItem_Click);
             // 
             // Form1

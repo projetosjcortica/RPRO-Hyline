@@ -178,7 +178,11 @@ namespace JCortica_RPRO.Repositories
         public List<Pesagem> GetAllPesagemInvalid()
         {
             var result = new List<Pesagem>();
-            string sql = "SELECT * FROM pesagemcsv WHERE valida = 0";
+            string sql = @"SELECT *
+                           FROM pesagemcsv
+                           WHERE valida = 0
+                           ORDER BY COALESCE(STR_TO_DATE(dia, '%d/%m/%Y'), STR_TO_DATE(dia, '%d/%m/%y')) ASC,
+                                    hora ASC";
 
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
@@ -190,23 +194,47 @@ namespace JCortica_RPRO.Repositories
                 {
                     while (queryResult.Read())
                     {
+                        string GetStringOrEmpty(string column)
+                        {
+                            int index = queryResult.GetOrdinal(column);
+                            return queryResult.IsDBNull(index) ? string.Empty : queryResult.GetString(index);
+                        }
+
+                        int GetIntOrZero(string column)
+                        {
+                            int index = queryResult.GetOrdinal(column);
+                            return queryResult.IsDBNull(index) ? 0 : queryResult.GetInt32(index);
+                        }
+
+                        TimeSpan GetTimeOrZero(string column)
+                        {
+                            int index = queryResult.GetOrdinal(column);
+                            return queryResult.IsDBNull(index) ? TimeSpan.Zero : queryResult.GetTimeSpan(index);
+                        }
+
+                        bool GetBoolOrFalse(string column)
+                        {
+                            int index = queryResult.GetOrdinal(column);
+                            return !queryResult.IsDBNull(index) && queryResult.GetBoolean(index);
+                        }
+
                         var pesos = new List<int>();
                         for (int i = 1; i <= 24; i++)
                         {
-                            pesos.Add(queryResult.GetInt32($"prod_{i}_peso"));
+                            pesos.Add(GetIntOrZero($"prod_{i}_peso"));
                         }
 
                         var pesagem = new Pesagem
                         {
-                            Dia = queryResult.GetString("dia"),
-                            Hora = queryResult.GetTimeSpan("hora"),
-                            Responsavel = queryResult.GetString("responsavel"),
-                            Observacao = queryResult.GetString("observacao"),
-                            Valida = queryResult.GetBoolean("valida"),
-                            NumeroFormula = queryResult.IsDBNull(queryResult.GetOrdinal("numero_form")) ? 0 : queryResult.GetInt32("numero_form"),
-                            CodigoFormula = queryResult.IsDBNull(queryResult.GetOrdinal("cod_form")) ? 0 : queryResult.GetInt32("cod_form"),
-                            NomeFormula = queryResult.IsDBNull(queryResult.GetOrdinal("nome_form")) ? string.Empty : queryResult.GetString("nome_form"),
-                            Ciclo = queryResult.IsDBNull(queryResult.GetOrdinal("ciclo")) ? string.Empty : queryResult.GetString("ciclo"),
+                            Dia = GetStringOrEmpty("dia"),
+                            Hora = GetTimeOrZero("hora"),
+                            Responsavel = GetStringOrEmpty("responsavel"),
+                            Observacao = GetStringOrEmpty("observacao"),
+                            Valida = GetBoolOrFalse("valida"),
+                            NumeroFormula = GetIntOrZero("numero_form"),
+                            CodigoFormula = GetIntOrZero("cod_form"),
+                            NomeFormula = GetStringOrEmpty("nome_form"),
+                            Ciclo = GetStringOrEmpty("ciclo"),
                             Pesos = pesos
                         };
 
@@ -226,9 +254,18 @@ namespace JCortica_RPRO.Repositories
                         (
                             SELECT *
                             FROM lotecsv
-                            WHERE STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s')
-                                  <= STR_TO_DATE(CONCAT(@Dia,' ',@Hora), '%d/%m/%y %H:%i:%s')
-                            ORDER BY STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s') DESC
+                            WHERE COALESCE(
+                                      STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%Y %H:%i:%s'),
+                                      STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s')
+                                  )
+                                  <= COALESCE(
+                                      STR_TO_DATE(CONCAT(@Dia,' ',@Hora), '%d/%m/%Y %H:%i:%s'),
+                                      STR_TO_DATE(CONCAT(@Dia,' ',@Hora), '%d/%m/%y %H:%i:%s')
+                                  )
+                            ORDER BY COALESCE(
+                                      STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%Y %H:%i:%s'),
+                                      STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s')
+                                     ) DESC
                             LIMIT 1
                         )
 
@@ -237,7 +274,10 @@ namespace JCortica_RPRO.Repositories
                         (
                             SELECT *
                             FROM lotecsv
-                            ORDER BY STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s') ASC
+                            ORDER BY COALESCE(
+                                      STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%Y %H:%i:%s'),
+                                      STR_TO_DATE(CONCAT(dia,' ',hora), '%d/%m/%y %H:%i:%s')
+                                     ) ASC
                             LIMIT 1
                         )
                     ) t
@@ -258,6 +298,18 @@ namespace JCortica_RPRO.Repositories
                         if (!reader.Read())
                             return null;
 
+                        string GetStringOrEmpty(string column)
+                        {
+                            int index = reader.GetOrdinal(column);
+                            return reader.IsDBNull(index) ? string.Empty : reader.GetString(index);
+                        }
+
+                        TimeSpan GetTimeOrZero(string column)
+                        {
+                            int index = reader.GetOrdinal(column);
+                            return reader.IsDBNull(index) ? TimeSpan.Zero : reader.GetTimeSpan(index);
+                        }
+
                         var lotes = new List<int>();
 
                         for (int i = 1; i <= 24; i++)
@@ -272,8 +324,8 @@ namespace JCortica_RPRO.Repositories
 
                         return new Lotes
                         {
-                            Dia = reader.GetString(reader.GetOrdinal("dia")),
-                            Hora = reader.GetTimeSpan(reader.GetOrdinal("hora")),
+                            Dia = GetStringOrEmpty("dia"),
+                            Hora = GetTimeOrZero("hora"),
                             NumeroLotes = lotes
                         };
                     }
@@ -403,7 +455,9 @@ namespace JCortica_RPRO.Repositories
         {
             var result = new List<string>();
             var sql = @"
-                SELECT dia FROM etiqueta
+                SELECT DISTINCT dia
+                FROM etiqueta
+                ORDER BY COALESCE(STR_TO_DATE(dia, '%d/%m/%Y'), STR_TO_DATE(dia, '%d/%m/%y')) ASC
              ";
 
             using (var connection = new MySqlConnection(_connectionString))
@@ -417,11 +471,7 @@ namespace JCortica_RPRO.Repositories
                         while (queryResult.Read())
                         {
                             var dia = queryResult.GetString("dia");
-
-                            if (!result.Contains(dia))
-                            {
-                                result.Add(dia);
-                            }
+                            result.Add(dia);
                         }
                     }
                 }
@@ -432,7 +482,11 @@ namespace JCortica_RPRO.Repositories
 
         public async Task<List<LabelZebra>> GetLabelFromDate(string Dia)
         {
-            string sql = "SELECT * from etiqueta WHERE dia = @Dia";
+            string sql = @"SELECT *
+                            FROM etiqueta
+                            WHERE dia = @Dia
+                            ORDER BY COALESCE(STR_TO_DATE(dia, '%d/%m/%Y'), STR_TO_DATE(dia, '%d/%m/%y')) ASC,
+                                     hora ASC";
             var produtosNome = GetMateriaPrima();
             var result = new List<LabelZebra>();
 
@@ -488,7 +542,9 @@ namespace JCortica_RPRO.Repositories
             string sql = @"SELECT * 
                             FROM etiqueta
                             WHERE STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DiaInicial, '%d/%m/%Y')
-                            AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DiaFinal, '%d/%m/%Y')";
+                            AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DiaFinal, '%d/%m/%Y')
+                            ORDER BY COALESCE(STR_TO_DATE(dia, '%d/%m/%Y'), STR_TO_DATE(dia, '%d/%m/%y')) ASC,
+                                     hora ASC";
 
             var produtosNome = GetMateriaPrima();
             var result = new List<LabelZebra>();
@@ -571,6 +627,8 @@ namespace JCortica_RPRO.Repositories
                 sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
 
+            sql += " ORDER BY COALESCE(STR_TO_DATE(dia, '%d/%m/%Y'), STR_TO_DATE(dia, '%d/%m/%y')) ASC, hora ASC";
+
             var produtosNome = GetMateriaPrima();
             var result = new List<LabelZebra>();
 
@@ -630,7 +688,7 @@ namespace JCortica_RPRO.Repositories
         {
             var result = new List<string>();
             var sql = @"
-                SELECT nome_form FROM etiqueta WHERE 1 = 1
+                SELECT DISTINCT nome_form FROM etiqueta WHERE 1 = 1
              ";
 
             if(string.IsNullOrEmpty(DataFinal))
@@ -642,6 +700,8 @@ namespace JCortica_RPRO.Repositories
                 sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DataInicial, '%d/%m/%Y')";
                 sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
+
+            sql += " ORDER BY nome_form ASC";
 
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -657,11 +717,7 @@ namespace JCortica_RPRO.Repositories
                         while (queryResult.Read())
                         {
                             var nomeFormula = queryResult.GetString("nome_form");
-
-                            if (!result.Contains(nomeFormula))
-                            {
-                                result.Add(nomeFormula);
-                            }
+                            result.Add(nomeFormula);
                         }
                     }
                 }
@@ -674,7 +730,7 @@ namespace JCortica_RPRO.Repositories
         {
             var result = new List<string>();
             var sql = @"
-                SELECT cod_form FROM etiqueta WHERE 1 = 1 
+                SELECT DISTINCT cod_form FROM etiqueta WHERE 1 = 1 
              ";
 
             if (string.IsNullOrEmpty(DataFinal))
@@ -686,6 +742,8 @@ namespace JCortica_RPRO.Repositories
                 sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DataInicial, '%d/%m/%Y')";
                 sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
+
+            sql += " ORDER BY cod_form ASC";
 
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -701,11 +759,7 @@ namespace JCortica_RPRO.Repositories
                         while (queryResult.Read())
                         {
                             var codigoFormula = queryResult.GetString("cod_form");
-
-                            if (!result.Contains(codigoFormula))
-                            {
-                                result.Add(codigoFormula);
-                            }
+                            result.Add(codigoFormula);
                         }
                     }
                 }
@@ -718,7 +772,7 @@ namespace JCortica_RPRO.Repositories
         {
             var result = new List<string>();
             var sql = @"
-                SELECT numero_form FROM etiqueta WHERE 1 = 1
+                SELECT DISTINCT numero_form FROM etiqueta WHERE 1 = 1
              ";
 
             if (string.IsNullOrEmpty(DataFinal))
@@ -730,6 +784,8 @@ namespace JCortica_RPRO.Repositories
                 sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') >= STR_TO_DATE(@DataInicial, '%d/%m/%Y')";
                 sql += " AND STR_TO_DATE(dia, '%d/%m/%Y') <= STR_TO_DATE(@DataFinal, '%d/%m/%Y')";
             }
+
+            sql += " ORDER BY numero_form ASC";
 
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -744,11 +800,7 @@ namespace JCortica_RPRO.Repositories
                         while (queryResult.Read())
                         {
                             var numeroFormula = queryResult.GetString("numero_form");
-
-                            if (!result.Contains(numeroFormula))
-                            {
-                                result.Add(numeroFormula);
-                            }
+                            result.Add(numeroFormula);
                         }
                     }
                 }
